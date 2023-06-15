@@ -23,10 +23,10 @@ class MainTabBarController : UITabBarController{
     }
     func createView() {
         
-        let mainNavController = createNavController(notSelectedIcon: UIImage(imageLiteralResourceName: "Main_Screen_Not_Selected"), selectedIcon: UIImage(imageLiteralResourceName: "Main_Screen_Selected"),rootViewController: UserProfileController(collectionViewLayout: UICollectionViewFlowLayout()))
-        let searchNavController = createNavController(notSelectedIcon: UIImage(imageLiteralResourceName: "Search_Not_Selected"), selectedIcon: UIImage(imageLiteralResourceName: "Search_Selected"),rootViewController: UserProfileController(collectionViewLayout: UICollectionViewFlowLayout()))
-        let addNavController = createNavController(notSelectedIcon: UIImage(imageLiteralResourceName: "Add_Not_Selected"), selectedIcon: UIImage(imageLiteralResourceName: "Add_Not_Selected"),rootViewController: UserProfileController(collectionViewLayout: UICollectionViewFlowLayout()))
-        let likeNavController = createNavController(notSelectedIcon: UIImage(imageLiteralResourceName: "Like_Not_Selected"), selectedIcon: UIImage(imageLiteralResourceName: "Like_Selected"),rootViewController: UserProfileController(collectionViewLayout: UICollectionViewFlowLayout()))
+        let mainNavController = createNavController(notSelectedIcon: UIImage(imageLiteralResourceName: "Main_Screen_Not_Selected"), selectedIcon: UIImage(imageLiteralResourceName: "Main_Screen_Selected"),rootViewController: MainController(collectionViewLayout: UICollectionViewFlowLayout()))
+        let searchNavController = createNavController(notSelectedIcon: UIImage(imageLiteralResourceName: "Search_Not_Selected"), selectedIcon: UIImage(imageLiteralResourceName: "Search_Selected"),rootViewController: SearchUserController(collectionViewLayout: UICollectionViewFlowLayout()))
+        let addNavController = createNavController(notSelectedIcon: UIImage(imageLiteralResourceName: "Add_Not_Selected"), selectedIcon: UIImage(imageLiteralResourceName: "Add_Not_Selected"))
+        let likeNavController = createNavController(notSelectedIcon: UIImage(imageLiteralResourceName: "Like_Not_Selected"), selectedIcon: UIImage(imageLiteralResourceName: "Like_Selected"))
             
         
         let layout = UICollectionViewFlowLayout()

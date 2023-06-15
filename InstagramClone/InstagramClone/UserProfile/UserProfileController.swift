@@ -5,17 +5,44 @@ import Firebase
 import FirebaseFirestore
 
 class UserProfileController :  UICollectionViewController {
+    var userID : String?
     
     let postCellID = "postCellID"
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         getUser()
         collectionView.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerID")
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: postCellID)
+        collectionView.register(UserPostPhotoCell.self, forCellWithReuseIdentifier: postCellID)
         
         btnLogOutCreate()
+        
+    }
+    var posts = [Post]()
+    fileprivate func getPostFS(){
+//        guard let validUserID = Auth.auth().currentUser?.uid else {return}
+        guard let validUserID = self.validUser?.userID else {return}
+       
+ 
+        Firestore.firestore().collection("Posts").document(validUserID).collection("Photo_Posts").order(by: "PostDate", descending: false)
+            .addSnapshotListener { querySnapshot, error in
+                if let error = error {
+                    print("Error when getting posts")
+                    return
+                }
+                querySnapshot?.documentChanges.forEach({ changes in
+                    if changes.type == .added {
+                        let postData = changes.document.data()
+                        let post = Post(user: self.validUser! ,dictionaryData: postData)
+                        self.posts.append(post)
+                    }
+                })
+                //All posts transfer to posts array
+                self.posts.reverse()
+                self.collectionView.reloadData()
+            }
     }
     fileprivate func btnLogOutCreate(){
         
@@ -55,11 +82,11 @@ class UserProfileController :  UICollectionViewController {
         return CGSize(width: width, height: width)
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return posts.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let postCell = collectionView.dequeueReusableCell(withReuseIdentifier: postCellID, for: indexPath)
-        postCell.backgroundColor = .blue
+        let postCell = collectionView.dequeueReusableCell(withReuseIdentifier: postCellID, for: indexPath) as! UserPostPhotoCell
+        postCell.post = posts[indexPath.row]
         return postCell
     }
     
@@ -72,8 +99,9 @@ class UserProfileController :  UICollectionViewController {
     
     var validUser : User?
     fileprivate func getUser(){
-        guard let signedUserId = Auth.auth().currentUser?.uid else {return}
-        Firestore.firestore().collection("Users").document(signedUserId).getDocument { (snapshot,error) in
+        //guard let signedUserId = Auth.auth().currentUser?.uid else {return}
+        let validUserID = userID ?? Auth.auth().currentUser?.uid ?? ""
+        Firestore.firestore().collection("Users").document(validUserID).getDocument { (snapshot,error) in
             if let error = error{
                 print("User data cant reached : ",error)
                 return
@@ -81,7 +109,7 @@ class UserProfileController :  UICollectionViewController {
             guard let userData = snapshot?.data() else {return}
             //let userName = userData["Username "] as? String
             self.validUser = User(userData: userData)
-            self.collectionView.reloadData()
+            self.getPostFS()
             self.navigationItem.title = self.validUser?.userName
           
         }

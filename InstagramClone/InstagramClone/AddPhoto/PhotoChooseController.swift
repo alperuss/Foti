@@ -16,6 +16,8 @@ class PhotoChooseController : UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         chosenPhoto = photos[indexPath.row]
         collectionView.reloadData()
+        let indexTop = IndexPath(item: 0, section: 0)
+        collectionView.scrollToItem(at: indexTop, at: .bottom, animated: true)
     }
     
     var assets = [PHAsset]()
@@ -71,8 +73,11 @@ class PhotoChooseController : UICollectionViewController {
         let width = view.frame.width
         return CGSize(width: width, height: width)
     }
+    var header : PhotoChooseHeader?
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerID, for: indexPath) as! PhotoChooseHeader
+        self.header = header
+        header.imgHeader.image = chosenPhoto
         
         
         if let chosenPhoto = chosenPhoto {
@@ -108,7 +113,9 @@ class PhotoChooseController : UICollectionViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(btnNextPressed))
     }
     @objc func btnNextPressed(){
-        print("next")
+       let sharePhotoController = SharePhotoController()
+        sharePhotoController.chosenPhoto = header?.imgHeader.image
+        navigationController?.pushViewController(sharePhotoController, animated: true)
     }
     @objc func btnCancelPressed(){
         dismiss(animated: true)
