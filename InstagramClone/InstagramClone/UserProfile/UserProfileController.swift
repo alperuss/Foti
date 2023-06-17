@@ -22,7 +22,7 @@ class UserProfileController :  UICollectionViewController {
     }
     var posts = [Post]()
     fileprivate func getPostFS(){
-//        guard let validUserID = Auth.auth().currentUser?.uid else {return}
+//          guard let validUserID = Auth.auth().currentUser?.uid else {return}
         guard let validUserID = self.validUser?.userID else {return}
        
  
@@ -101,7 +101,6 @@ class UserProfileController :  UICollectionViewController {
     fileprivate func getUser(){
 //        guard let validUserID = Auth.auth().currentUser?.uid else {return}
         let validUserID = userID ?? Auth.auth().currentUser?.uid ?? ""
-        print(validUserID)
         Firestore.firestore().collection("Users").document(validUserID).getDocument { (snapshot,error) in
             if let error = error{
                 print("User data cant reached : ",error)

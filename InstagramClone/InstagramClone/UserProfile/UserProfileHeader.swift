@@ -39,7 +39,7 @@ class UserProfileHeader : UICollectionViewCell {
                     self.btnEditProfile.setTitle("Follow", for: .normal)
                     self.btnEditProfile.backgroundColor = UIColor.rgbConverter(red: 100, green: 75, blue: 235)
                     self.btnEditProfile.setTitleColor(.white, for: .normal)
-                    self.btnEditProfile.layer.borderColor = UIColor(white: 0, alpha: 0).cgColor
+                    self.btnEditProfile.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
                     self.btnEditProfile.layer.borderWidth = 1
                 }
             }

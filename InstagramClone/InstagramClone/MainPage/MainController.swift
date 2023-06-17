@@ -13,7 +13,7 @@ class MainController : UICollectionViewController {
         collectionView.backgroundColor = .white
         collectionView.register(MainPostCell.self, forCellWithReuseIdentifier: cellID)
         editNavigationBar()
-//        getUser()
+        getUser()
         getFollowedUserValue()
         
         let refreshControl = UIRefreshControl()

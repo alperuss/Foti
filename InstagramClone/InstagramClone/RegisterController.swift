@@ -126,9 +126,9 @@ class RegisterController: UIViewController {
                     }
                     print("Photo URL :\(url?.absoluteString ?? "No Link")")
                     
-                    let addData = ["Username " : userName,
-                                   "UserId " : signedUserId,
-                                   "ProfilePhotoURL " : url?.absoluteString ?? ""]
+                    let addData = ["Username" : userName,
+                                   "UserID" : signedUserId,
+                                   "ProfilePhotoURL" : url?.absoluteString ?? ""]
                     
                     Firestore.firestore().collection("Users").document(signedUserId).setData(addData) { error in
                         if let error = error {
