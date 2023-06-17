@@ -30,6 +30,7 @@ class RegisterController: UIViewController {
         let txt = UITextField()
         txt.placeholder = "Enter your E-mail address"
         txt.backgroundColor = UIColor(white: 0, alpha: 0.05)
+        txt.textColor = .black
         txt.font = UIFont.systemFont(ofSize: 16)
         txt.borderStyle = .roundedRect
         
@@ -58,6 +59,7 @@ class RegisterController: UIViewController {
         let txt = UITextField()
         txt.placeholder = "Enter your Username"
         txt.backgroundColor = UIColor(white: 0, alpha: 0.05)
+        txt.textColor = .black
         txt.font = UIFont.systemFont(ofSize: 16)
         txt.borderStyle = .roundedRect
         
@@ -68,6 +70,7 @@ class RegisterController: UIViewController {
         let txt = UITextField()
         txt.placeholder = "Enter your Password"
         txt.backgroundColor = UIColor(white: 0, alpha: 0.05 )
+        txt.textColor = .black
         txt.isSecureTextEntry = true
         txt.font = UIFont.systemFont(ofSize: 16)
         txt.borderStyle = .roundedRect

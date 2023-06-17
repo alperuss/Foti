@@ -3110,10 +3110,6 @@ FirestoreEncoder
    limitations under the License.
 
 
-## GoogleAnalytics
-
-Copyright 2021 Google
-
 ## GoogleAppMeasurement
 
 Copyright 2022 Google

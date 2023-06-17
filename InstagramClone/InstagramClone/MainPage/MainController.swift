@@ -69,6 +69,12 @@ class MainController : UICollectionViewController {
     }
     fileprivate func editNavigationBar(){
         navigationItem.titleView = UIImageView(image: UIImage(named: "Logo_Instagram2"))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Camera")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(cameraManage))
+    }
+    @objc func cameraManage(){
+        let cameraController = CameraController()
+        cameraController.modalPresentationStyle = .fullScreen
+        present(cameraController, animated: true)
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
