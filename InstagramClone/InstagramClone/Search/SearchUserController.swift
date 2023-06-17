@@ -47,7 +47,7 @@ class SearchUserController : UICollectionViewController, UISearchBarDelegate{
     var filteredUsers = [User]()
     var users = [User]()
     fileprivate func getUsers(){
-        Firestore.firestore().collection("Users").getDocuments { querySnapshot, error in
+        Firestore.firestore().collection("Users").getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error when get users \(error.localizedDescription)")
             }
@@ -82,9 +82,10 @@ class SearchUserController : UICollectionViewController, UISearchBarDelegate{
         searchBar.resignFirstResponder()
 
         let user = filteredUsers[indexPath.row]
-        let userProfileController = UserProfileController(collectionViewLayout: UICollectionViewFlowLayout())
+        print(user.userName)
+       let userProfileController = UserProfileController(collectionViewLayout: UICollectionViewFlowLayout())
         userProfileController.userID = user.userID
-        navigationController?.pushViewController(userProfileController, animated: true)
+       navigationController?.pushViewController(userProfileController, animated: true)
         
     }
 }

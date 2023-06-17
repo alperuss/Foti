@@ -19,6 +19,8 @@
 		E252B2D52A1FFC5500581529 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E252B2D32A1FFC5500581529 /* LaunchScreen.storyboard */; };
 		E252B2DE2A200CEF00581529 /* Extension+ UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E252B2DD2A200CEF00581529 /* Extension+ UIColor.swift */; };
 		E252B2E02A216B8300581529 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E252B2DF2A216B8300581529 /* GoogleService-Info.plist */; };
+		E25D608F2A3D1D0B009CE587 /* Extension+Firestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25D608E2A3D1D0B009CE587 /* Extension+Firestore.swift */; };
+		E25D60912A3D220E009CE587 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25D60902A3D220E009CE587 /* Extension+Date.swift */; };
 		E27505372A25496A0012E97D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27505362A25496A0012E97D /* MainTabBarController.swift */; };
 		E27505392A254B300012E97D /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27505382A254B300012E97D /* UserProfileController.swift */; };
 		E275053C2A2557240012E97D /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E275053B2A2557230012E97D /* UserProfileHeader.swift */; };
@@ -51,6 +53,8 @@
 		E252B2D62A1FFC5500581529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E252B2DD2A200CEF00581529 /* Extension+ UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ UIColor.swift"; sourceTree = "<group>"; };
 		E252B2DF2A216B8300581529 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E25D608E2A3D1D0B009CE587 /* Extension+Firestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Firestore.swift"; sourceTree = "<group>"; };
+		E25D60902A3D220E009CE587 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		E27505362A25496A0012E97D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E27505382A254B300012E97D /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		E275053B2A2557230012E97D /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				E252B2DD2A200CEF00581529 /* Extension+ UIColor.swift */,
+				E25D608E2A3D1D0B009CE587 /* Extension+Firestore.swift */,
+				E25D60902A3D220E009CE587 /* Extension+Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -323,12 +329,14 @@
 				E2BF280A2A368A0300002C59 /* Post.swift in Sources */,
 				E2065E4A2A391DCC000AD71D /* SearchUserController.swift in Sources */,
 				E27505392A254B300012E97D /* UserProfileController.swift in Sources */,
+				E25D60912A3D220E009CE587 /* Extension+Date.swift in Sources */,
 				E2065E472A37A96F000AD71D /* MainPostCell.swift in Sources */,
 				E2BF28062A350A9000002C59 /* PhotoChooseHeader.swift in Sources */,
 				E2065E452A37A7CC000AD71D /* MainController.swift in Sources */,
 				E2BF28042A3506BF00002C59 /* PhotoChooseCell.swift in Sources */,
 				E2BF28082A3665E200002C59 /* SharePhotoController.swift in Sources */,
 				E2BF280C2A368D2600002C59 /* UserPostPhotoCell.swift in Sources */,
+				E25D608F2A3D1D0B009CE587 /* Extension+Firestore.swift in Sources */,
 				E275053F2A255A740012E97D /* User.swift in Sources */,
 				E27505372A25496A0012E97D /* MainTabBarController.swift in Sources */,
 				E252B2C92A1FFC5400581529 /* AppDelegate.swift in Sources */,

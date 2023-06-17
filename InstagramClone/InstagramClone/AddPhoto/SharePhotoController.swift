@@ -94,6 +94,7 @@ class SharePhotoController : UIViewController {
             }
         }
     }
+    static let updateNotification = Notification.Name("UpdatePosts")
     fileprivate func savePostFS(imageURL : String){
         guard let postPhoto = chosenPhoto else {return}
         guard let message = txtMessage.text,
@@ -118,6 +119,8 @@ class SharePhotoController : UIViewController {
             }
             print("Share successfully saved and Post Document ID : \(ref?.documentID)")
             self.dismiss(animated: true)
+                
+                NotificationCenter.default.post(name: SharePhotoController.updateNotification, object: nil)
         })
     }
     

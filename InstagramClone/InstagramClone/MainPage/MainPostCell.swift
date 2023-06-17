@@ -21,7 +21,9 @@ class MainPostCell : UICollectionViewCell {
         let attrText = NSMutableAttributedString(string:"\(post.user.userName) ",attributes: [.font : UIFont.boldSystemFont(ofSize: 14)])
         attrText.append(NSAttributedString(string: post.message ?? "No Data",attributes: [.font : UIFont.systemFont(ofSize: 14)]))
         attrText.append(NSAttributedString(string: "\n\n",attributes: [.font : UIFont.systemFont(ofSize: 14)]))
-        attrText.append(NSAttributedString(string: "1 week ago",attributes: [.font : UIFont.systemFont(ofSize: 14), .foregroundColor : UIColor.gray]))
+        let postDate = post.postDate.dateValue()
+        
+        attrText.append(NSAttributedString(string: postDate.timeBefore(),attributes: [.font : UIFont.systemFont(ofSize: 14), .foregroundColor : UIColor.gray]))
         lblPostMessage.attributedText = attrText
     }
     let lblPostMessage : UILabel = {

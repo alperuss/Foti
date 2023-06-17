@@ -13,7 +13,7 @@ class UserProfileController :  UICollectionViewController {
         
         super.viewDidLoad()
         collectionView.backgroundColor = .white
-        getUser()
+       getUser()
         collectionView.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerID")
         collectionView.register(UserPostPhotoCell.self, forCellWithReuseIdentifier: postCellID)
         
@@ -27,9 +27,9 @@ class UserProfileController :  UICollectionViewController {
        
  
         Firestore.firestore().collection("Posts").document(validUserID).collection("Photo_Posts").order(by: "PostDate", descending: false)
-            .addSnapshotListener { querySnapshot, error in
+            .addSnapshotListener { (querySnapshot, error) in
                 if let error = error {
-                    print("Error when getting posts")
+                    print("Error when getting posts : ",error)
                     return
                 }
                 querySnapshot?.documentChanges.forEach({ changes in
@@ -99,8 +99,9 @@ class UserProfileController :  UICollectionViewController {
     
     var validUser : User?
     fileprivate func getUser(){
-        //guard let signedUserId = Auth.auth().currentUser?.uid else {return}
+//        guard let validUserID = Auth.auth().currentUser?.uid else {return}
         let validUserID = userID ?? Auth.auth().currentUser?.uid ?? ""
+        print(validUserID)
         Firestore.firestore().collection("Users").document(validUserID).getDocument { (snapshot,error) in
             if let error = error{
                 print("User data cant reached : ",error)

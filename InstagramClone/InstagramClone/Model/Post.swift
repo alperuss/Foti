@@ -8,13 +8,14 @@
 import Firebase
 import FirebaseFirestore
 struct Post {
+    var id : String?
     let user : User
     let postImageURL : String?
     let imageWidth  : Double?
     let imageHeight : Double?
     let userID  : String?
     let message : String?
-    let postDate : Timestamp?
+    let postDate : Timestamp
     
     init(user : User ,dictionaryData : [String : Any]) {
         self.user = user
@@ -23,7 +24,7 @@ struct Post {
         self.imageHeight = dictionaryData["ImageHeight"] as? Double
         self.userID = dictionaryData["UserID"] as? String
         self.message = dictionaryData["Message"] as? String
-        self.postDate = dictionaryData["PostDate"] as? Timestamp
+        self.postDate = dictionaryData["PostDate"] as? Timestamp ?? Timestamp(date: Date())
         
     }
 }
