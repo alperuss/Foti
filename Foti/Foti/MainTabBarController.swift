@@ -29,6 +29,7 @@ class MainTabBarController : UITabBarController{
 //        let likeNavController = createNavController(notSelectedIcon: UIImage(imageLiteralResourceName: "Like_Not_Selected"), selectedIcon: UIImage(imageLiteralResourceName: "Like_Selected"))
 //        let likeNavController = createNavController(notSelectedIcon: UIImage(imageLiteralResourceName: "Main_Screen_Not_Selected"), selectedIcon: UIImage(imageLiteralResourceName: "Main_Screen_Selected"),rootViewController: MainController(collectionViewLayout: UICollectionViewFlowLayout()))
         
+        
         let layout = UICollectionViewFlowLayout()
         let userProfileController = UserProfileController(collectionViewLayout: layout )
         let userProfileNavController = UINavigationController(rootViewController: userProfileController)
